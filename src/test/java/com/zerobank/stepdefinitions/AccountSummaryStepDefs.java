@@ -8,6 +8,11 @@ import org.junit.Assert;
 
 import java.util.List;
 
+/**
+ * @author Cihan Aslan
+ * @project Zerobank_Project
+ */
+
 public class AccountSummaryStepDefs {
 
     @Then("verify page title {string}")

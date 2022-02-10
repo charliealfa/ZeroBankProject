@@ -7,6 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+/**
+ * @author Cihan Aslan
+ * @project Zerobank_Project
+ */
+
 public class AccountSummaryPage {
 
     @FindBy(id="account_summary_tab")
