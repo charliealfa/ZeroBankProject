@@ -11,7 +11,7 @@ Feature: Verify Pay Bills feature
     And verify page title "Zero - Pay Bills"
 
 
-  Scenario: verify pay bills page title
+  Scenario: verify payment successfully
     And pay with the infos
     Then verify alert message "The payment was successfully submitted."
 
