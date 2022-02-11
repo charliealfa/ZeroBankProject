@@ -1,3 +1,4 @@
+@aspage
 Feature: Account Summary Page
 
   Scenario: Title Verify

@@ -32,7 +32,7 @@ public class AccountSummaryPage {
 
     public void navigateTab(String tabName){
          for(WebElement we:navTabs){
-            if(we.getText().equals("Account Activity")){
+            if(we.getText().equals(tabName)){
                 we.click();
                 return;
             }

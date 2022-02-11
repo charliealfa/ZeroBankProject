@@ -6,10 +6,10 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-/**
- * @author Cihan Aslan
- * @project Zerobank_Project
- */
+/*
+  @author Cihan Aslan
+  @project Zerobank_Project
+*/
 
 public class Hooks {
 

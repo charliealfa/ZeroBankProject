@@ -1,4 +1,4 @@
-@Login-123
+@loginpage
 Feature: Login Feature
 
   Scenario: Login with valid credantials
