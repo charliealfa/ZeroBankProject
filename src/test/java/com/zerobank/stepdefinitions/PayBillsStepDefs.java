@@ -1,15 +1,21 @@
 package com.zerobank.stepdefinitions;
 
+import com.zerobank.pages.AccountActivityPage;
 import com.zerobank.pages.PayBillsPage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /*
   @author Cihan Aslan
@@ -91,6 +97,48 @@ public class PayBillsStepDefs {
     @Then("verify payment not accept")
     public void verify_payment_not_accept() {
         Assert.assertFalse(payBillsPage.alertMessage.isDisplayed());
+    }
+
+
+    @Given("Add New Payee tab")
+    public void add_New_Payee_tab() {
+        new AccountActivityPage().clickTab("Add New Payee");
+    }
+
+    @Given("creates new payee using following information")
+    public void creates_new_payee_using_following_information(Map<String,String> userTable) {
+        new PayBillsPage().fillTheInfos(userTable);
+    }
+
+    @Then("message {string} should be displayed")
+    public void message_should_be_displayed(String expectedMessage) {
+        BrowserUtils.waitForVisibility(payBillsPage.actualMessage,5);
+        Assert.assertEquals(expectedMessage,payBillsPage.actualMessage.getText());
+    }
+
+
+    @Then("following currencies should be available")
+    public void following_currencies_should_be_available(List<String> currincies) {
+        BrowserUtils.waitForClickablility(new PayBillsPage().currencyDropDown,5);
+        payBillsPage.compareCurrencies(currincies);
+    }
+
+    @When("user tries to calculate cost without selecting a currency")
+    public void user_tries_to_calculate_cost_without_selecting_a_currency() {
+        payBillsPage.calWithCurr("123456");
+    }
+
+    @Then("error message should be displayed")
+    public void error_message_should_be_displayed() throws InterruptedException {
+        Thread.sleep(500);
+        Alert alert = Driver.get().switchTo().alert();
+        Assert.assertTrue(alert.getText().contains("Please, ensure that you have filled all the required fields with valid values."));
+        alert.accept();
+    }
+
+    @When("user tries to calculate cost without entering a value")
+    public void user_tries_to_calculate_cost_without_entering_a_value() {
+        payBillsPage.calWithCurr("");
     }
 
 }

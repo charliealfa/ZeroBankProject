@@ -26,6 +26,9 @@ public class AccountSummaryPage {
     @FindBy(xpath = "//ul[@class='nav nav-tabs']/li")
     public List<WebElement> navTabs;
 
+    @FindBy(xpath = "//div[@class='board-content']//td//a")
+    public List<WebElement> actualLinks;
+
     public AccountSummaryPage(){
         PageFactory.initElements(Driver.get(),this);
     }
@@ -33,6 +36,16 @@ public class AccountSummaryPage {
     public void navigateTab(String tabName){
          for(WebElement we:navTabs){
             if(we.getText().equals(tabName)){
+                we.click();
+                return;
+            }
+        }
+    }
+
+
+    public void clickLink(String linkText){
+        for (WebElement we: actualLinks) {
+            if(we.getText().equalsIgnoreCase(linkText)){
                 we.click();
                 return;
             }
