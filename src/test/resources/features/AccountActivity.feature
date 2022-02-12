@@ -1,4 +1,4 @@
-@aapage
+@aapage @smoke
 Feature: Account Activity Page
 Background:
   Given the user on the login page

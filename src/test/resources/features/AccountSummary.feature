@@ -1,4 +1,4 @@
-@aspage
+@aspage @smoke
 Feature: Account Summary Page
 
   Scenario: Title Verify

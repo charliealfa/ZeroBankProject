@@ -1,4 +1,4 @@
-@pbpage
+@pbpage @smoke
 Feature: Verify Pay Bills feature
 
   Background:

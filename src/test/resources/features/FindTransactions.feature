@@ -1,4 +1,4 @@
-@transaction
+@transaction @smoke
 Feature: Find Transactions in Account Activity
   Background:
     Given the user on the login page

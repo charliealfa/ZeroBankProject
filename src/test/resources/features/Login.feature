@@ -1,4 +1,4 @@
-@loginpage
+@loginpage @smoke
 Feature: Login Feature
 
   Scenario: Login with valid credantials
@@ -38,3 +38,26 @@ Feature: Login Feature
     When user type valid "username" wrong "wrpassword"
     Then user should not be logged in
     And error message displayed
+
+#    Scenario Outline: Login test
+#      Given the user on the login page
+#      When user type "<user>" "<pass>"
+#      Then user should be logged in
+#      And verify Account Summary page opened
+#
+#      Examples:
+#      |user     |pass     |
+#      |username |password |
+#      |wusername|password |
+#      |username |wpassword|
+#
+#      Scenario Outline: Error Message test
+#        Given the user on the login page
+#        When user type valid "<user>" wrong "<pass>"
+#        Then user should not be logged in
+#        And error message displayed
+#
+#        Examples:
+#          |user     |pass     |
+#          |wusername|password |
+#          |username |wpassword|

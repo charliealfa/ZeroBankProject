@@ -1,5 +1,5 @@
 
-@pfpage
+@pfpage @smoke
 Feature: Purchase Foreign Currency
   Background:
     Given the user on the login page
